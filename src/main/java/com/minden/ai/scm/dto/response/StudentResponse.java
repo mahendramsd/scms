@@ -13,10 +13,12 @@ import lombok.Data;
 public class StudentResponse {
 
     private Long studentId;
+    private String studentName;
     private String studentEmail;
 
     public StudentResponse(Student student) {
         this.studentId = student.getId();
+        this.studentName = student.getStudentName();
         this.studentEmail = student.getStudentEmail();
     }
 }

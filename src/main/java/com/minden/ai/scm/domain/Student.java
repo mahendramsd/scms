@@ -16,6 +16,9 @@ import java.util.List;
 public class Student extends BaseEntity {
 
     @Column(name = "student_name")
+    private String studentName;
+
+    @Column(name = "student_email")
     private String studentEmail;
 
     @OneToMany(mappedBy = "student",  cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)

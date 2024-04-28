@@ -55,6 +55,7 @@ public class StudentServiceImpl implements StudentService {
             throw new CustomException(CustomErrorCodes.COURSE_ALREADY_EXISTS);
         }
         Student student = new Student();
+        student.setStudentName(studentDto.getStudentName());
         student.setStudentEmail(studentDto.getStudentEmail());
         studentRepository.save(student);
         log.debug("Student added successfully : {}", studentDto.getStudentEmail());
