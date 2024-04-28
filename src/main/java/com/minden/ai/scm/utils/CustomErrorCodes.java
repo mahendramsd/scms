@@ -11,7 +11,11 @@ public enum CustomErrorCodes {
 
 
     STUDENT_ALREADY_EXISTS(1001, "Student - Student already exists",HttpStatus.BAD_REQUEST),
-    COURSE_ALREADY_EXISTS(1002, "Course - Course already exists",HttpStatus.BAD_REQUEST);
+    COURSE_ALREADY_EXISTS(1002, "Course - Course already exists",HttpStatus.BAD_REQUEST),
+    STUDENT_NOT_FOUND(1003, "Student - Student not found",HttpStatus.NOT_FOUND),
+    COURSE_NOT_FOUND(1004, "Course - Student not found",HttpStatus.NOT_FOUND),
+    STUDENT_ALREADY_SIGNUP(1005, "Student - Already Signup",HttpStatus.BAD_REQUEST),
+    STUDENT_ENROLMENT_NOT_FOUND(1006, "Student - Enrolment not found",HttpStatus.NOT_FOUND);
 
 
     private final int id;

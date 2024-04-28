@@ -5,6 +5,8 @@ import com.minden.ai.scm.domain.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * @author mahendrasridayarathna
  * @created 28/04/2024 - 12:54 pm
@@ -12,5 +14,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
-    boolean existsByCourseName(String courseName);
+
+    Boolean existsByCourseName(String courseName);
+
+    Optional<Course> findByCourseName(String courseName);
 }
