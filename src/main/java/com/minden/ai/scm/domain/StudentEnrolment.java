@@ -12,7 +12,6 @@ import lombok.Data;
  * @project IntelliJ IDEA
  */
 
-@Data
 @Entity
 @Table(name = "student_enrolment")
 public class StudentEnrolment extends BaseEntity {

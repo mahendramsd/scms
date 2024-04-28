@@ -1,7 +1,6 @@
 package com.minden.ai.scm.repository;
 
 import com.minden.ai.scm.domain.Course;
-import com.minden.ai.scm.domain.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

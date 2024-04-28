@@ -1,5 +1,6 @@
 package com.minden.ai.scm.utils;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
  * @created 28/04/2024 - 11:30 am
  * @project IntelliJ IDEA
  */
+@Getter
 public enum CustomErrorCodes {
 
 
@@ -26,17 +28,5 @@ public enum CustomErrorCodes {
         this.id = id;
         this.msg = msg;
         this.httpCode = httpCode;
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    public String getMsg() {
-        return this.msg;
-    }
-
-    public HttpStatus getHttpCode() {
-        return this.httpCode;
     }
 }
