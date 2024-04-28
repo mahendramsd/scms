@@ -1,0 +1,41 @@
+
+spring:
+  application:
+    name: scms
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+
+# Database Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/smcs?useSSL=false&serverTimezone=UTC
+    username: root
+    password: msd@123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# JPA Configuration
+    jpa:
+      hibernate:
+        ddl-auto: update
+        show-sql: true
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          format_sql: true
+          use_sql_comments: true
+          jdbc:
+            time_zone: UTC
+
+# Logging Configuration
+logging:
+  level:
+    org:
+      springframework: INFO
+      hibernate: INFO
+      com:
+        scms: DEBUG
