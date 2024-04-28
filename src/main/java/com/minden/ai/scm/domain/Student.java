@@ -1,10 +1,9 @@
 package com.minden.ai.scm.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @author mahendrasridayarathna
@@ -18,4 +17,7 @@ public class Student extends BaseEntity {
 
     @Column(name = "student_name")
     private String studentEmail;
+
+    @OneToMany(mappedBy = "student",  cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<StudentEnrolment> studentEnrolments;
 }

@@ -9,7 +9,10 @@ import org.springframework.http.HttpStatus;
  */
 public enum CustomErrorCodes {
 
-    INVALID_USER(1001, "User - Not Found",HttpStatus.NOT_FOUND);
+
+    STUDENT_ALREADY_EXISTS(1001, "Student - Student already exists",HttpStatus.BAD_REQUEST),
+    COURSE_ALREADY_EXISTS(1002, "Course - Course already exists",HttpStatus.BAD_REQUEST);
+
 
     private final int id;
     private final String msg;
