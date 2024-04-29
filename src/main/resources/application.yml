@@ -1,6 +1,4 @@
 
-
-
 server:
   port: 8080
   servlet:
@@ -33,3 +31,5 @@ springdoc:
 spring:
   profiles:
     active: ${ACTIVE_PROFILE}:dev
+  application:
+    name: scms

@@ -79,7 +79,7 @@ class CourseServiceImplTest {
         // Assert
         verify(courseRepository).existsByCourseName(eq("Network Engineering"));
         verify(courseRepository).save(isA(Course.class));
-        assertEquals("Network Engineering", actualAddCourseResult.getCourseEmail());
+        assertEquals("Network Engineering", actualAddCourseResult.getCourseName());
         assertNull(actualAddCourseResult.getCourseId());
     }
 

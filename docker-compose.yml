@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.22
+    ports:
+      - 3333:3306
+    volumes:
+      - ./mysql-data/:/var/lib/mysql/
+    environment:
+      TZ: Asia/Colombo
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: scms
+    deploy:
+      replicas: 1
+      update_config:
+        order: start-first
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - scms-api
+
+  scms-api:
+    image: scms-api:latest
+    deploy:
+      replicas: 1
+      update_config:
+        order: start-first
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      TZ: Asia/Colombo
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/scms
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SERVER_SERVLET_CONTEXT_PATH: /api
+    volumes:
+      - ./api-data/logs/:/opt/logs/
+    networks:
+      - scms-api
+
+networks:
+  scms-api:
+    driver: overlay
+
