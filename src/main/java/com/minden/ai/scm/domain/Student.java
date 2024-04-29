@@ -2,6 +2,7 @@ package com.minden.ai.scm.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "student")
+@EqualsAndHashCode
 public class Student extends BaseEntity {
 
     @Column(name = "student_name")

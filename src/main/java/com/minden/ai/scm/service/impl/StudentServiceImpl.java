@@ -52,7 +52,7 @@ public class StudentServiceImpl implements StudentService {
         //check if student already exists
         if (studentRepository.existsByStudentEmail(studentDto.getStudentEmail())) {
             log.debug("Student already exists : {}", studentDto.getStudentEmail());
-            throw new CustomException(CustomErrorCodes.COURSE_ALREADY_EXISTS);
+            throw new CustomException(CustomErrorCodes.STUDENT_ALREADY_EXISTS);
         }
         Student student = new Student();
         student.setStudentName(studentDto.getStudentName());
@@ -140,10 +140,8 @@ public class StudentServiceImpl implements StudentService {
 
         // For each course, retrieve the list of students who have signed up for the course
         for (Course course : courses) {
-            List<Student> studentsInCourse = course.getStudentEnrolments().stream().map(StudentEnrolment::getStudent).toList();
-
-            // Remove the current student from the list
-            studentsInCourse.remove(student);
+            List<Student> studentsInCourse = course.getStudentEnrolments().stream().map(StudentEnrolment::getStudent)
+                    .filter(student1 -> !student1.equals(student)).toList();
 
             // Add the students to the classmates list
             classmates.addAll(studentsInCourse);

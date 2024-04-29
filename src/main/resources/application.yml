@@ -6,40 +6,18 @@ server:
   servlet:
     context-path: /api
 
-
-  # Database Configuration
-spring:
-  application:
-    name: scms
-  datasource:
-    url: jdbc:mysql://localhost:3306/scms?useSSL=false&serverTimezone=UTC
-    username: root
-    password: msd123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-    # JPA Configuration
-  jpa:
-    hibernate:
-        ddl-auto: update
-        show-sql: true
-        naming:
-          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQL8Dialect
-          format_sql: true
-          use_sql_comments: true
-          jdbc:
-            time_zone: UTC
-
 # Logging Configuration
 logging:
   level:
+    com:
+      minden:
+        ai:
+          scm: TRACE
     org:
-      springframework: INFO
-      hibernate: INFO
-      com:
-        scms: DEBUG
+      springframework:
+          security:
+            web: TRACE
+
 
 springdoc:
   packages-to-scan: com.minden.ai.scm.controller
@@ -52,3 +30,6 @@ springdoc:
   api-docs:
     path: /api-docs
 
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE}:dev

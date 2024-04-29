@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,6 +24,7 @@ import org.springframework.security.config.Customizer;
  * @project IntelliJ IDEA
  */
 
+@EnableWebSecurity
 @Configuration
 public class SecurityConfig  {
 
@@ -48,10 +50,10 @@ public class SecurityConfig  {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.httpBasic(Customizer.withDefaults());
+        http.httpBasic(Customizer.withDefaults()).csrf().disable();
         http.authorizeRequests().requestMatchers("/swagger-ui/**").permitAll();
         http.authorizeRequests(authorizeRequests ->
-                authorizeRequests.requestMatchers(EndpointRequest.to("info", "health")).permitAll()
+                authorizeRequests
                         .anyRequest().authenticated());
         return http.build();
     }

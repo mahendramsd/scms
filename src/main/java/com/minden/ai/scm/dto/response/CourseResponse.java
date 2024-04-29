@@ -13,10 +13,10 @@ import lombok.Data;
 public class CourseResponse {
 
     private Long courseId;
-    private String courseEmail;
+    private String courseName;
 
     public CourseResponse(Course course) {
         this.courseId = course.getId();
-        this.courseEmail = course.getCourseName();
+        this.courseName = course.getCourseName();
     }
 }
