@@ -38,6 +38,9 @@ class CourseServiceImplTest {
     private CourseServiceImpl courseServiceImpl;
 
 
+    /**
+     * Test for addCourse method
+     */
     @Test
     void testAddCourse() {
         // Arrange
@@ -51,6 +54,9 @@ class CourseServiceImplTest {
         verify(courseRepository).existsByCourseName(eq("Software Engineering"));
     }
 
+    /**
+     * Test for addCourse method
+     */
     @Test
     void testAddCourse2() {
         // Arrange
@@ -77,6 +83,9 @@ class CourseServiceImplTest {
         assertNull(actualAddCourseResult.getCourseId());
     }
 
+    /**
+     * Test for addCourse method
+     */
     @Test
     void testAddCourse3() {
         // Arrange
