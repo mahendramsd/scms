@@ -40,3 +40,15 @@ logging:
       hibernate: INFO
       com:
         scms: DEBUG
+
+springdoc:
+  packages-to-scan: com.minden.ai.scm.controller
+  swagger-ui:
+    tryItOutEnabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    filter: true
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs
+

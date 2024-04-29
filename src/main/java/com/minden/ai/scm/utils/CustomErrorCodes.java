@@ -17,7 +17,8 @@ public enum CustomErrorCodes {
     STUDENT_NOT_FOUND(1003, "Student - Student not found",HttpStatus.NOT_FOUND),
     COURSE_NOT_FOUND(1004, "Course - Student not found",HttpStatus.NOT_FOUND),
     STUDENT_ALREADY_SIGNUP(1005, "Student - Already Signup",HttpStatus.BAD_REQUEST),
-    STUDENT_ENROLMENT_NOT_FOUND(1006, "Student - Enrolment not found",HttpStatus.NOT_FOUND);
+    STUDENT_ENROLMENT_NOT_FOUND(1006, "Student - Enrolment not found",HttpStatus.NOT_FOUND),
+    USER_NOT_FOUND(1007, "User not found",HttpStatus.NOT_FOUND);
 
 
     private final int id;
